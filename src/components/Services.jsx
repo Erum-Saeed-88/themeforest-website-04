@@ -71,7 +71,7 @@ const Services = () => {
   }, []);
 
   return (
-    <section className="services-section" ref={sectionRef}>
+    <section className="services-section pt-5" ref={sectionRef}>
       {/* Background mesh */}
       <div className="services-bg-mesh" />
 

@@ -17,7 +17,7 @@ const Navbar = () => {
       className={`bexon-navbar ${scrolled ? "navbar-scrolled" : ""}`}
       variant="dark"
     >
-      <Container fluid className="px-4">
+      <Container fluid className="px-4 bg-tertiary">
         {/* Brand */}
         <BSNavbar.Brand href="#" className="bexon-brand">
           <span className="brand-icon">
@@ -63,7 +63,7 @@ const Navbar = () => {
                 <line x1="21" y1="21" x2="16.65" y2="16.65" />
               </svg>
             </button>
-            <Button className="lets-talk-btn" href="#">
+            <Button className="lets-talk-btn text-light" href="#">
               Let's Talk
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="btn-arrow">
                 <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
