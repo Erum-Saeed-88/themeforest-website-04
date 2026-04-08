@@ -23,15 +23,13 @@ const About = () => {
   const ref = (i) => (el) => (elemRefs.current[i] = el);
 
   return (
-    <section className="about-section w-100 h-30 bg-tertiary" ref={sectionRef}>
-      {/* BG mesh */}
+    <section className="about-section w-100 h-30 bg-tertiary mb-5" ref={sectionRef}>
       <div className="about-bg-mesh" />
 
       <Container fluid className="px-0">
         <h2 className="text-center fw-bold text-secondary mb-5 display-5">About Us</h2>
         <Row className="g-0 about-row">
 
-          {/* ── LEFT: Image Panel ── */}
           <Col lg={5} className="about-left">
             <div className="about-img-wrapper" ref={ref(0)}>
               <img
@@ -41,7 +39,6 @@ const About = () => {
               />
               <div className="about-img-overlay" />
 
-              {/* Floating stat card */}
               <div className="about-stat-card" ref={ref(1)}>
                 <span className="stat-label">Experiences</span>
                 <div className="stat-number">
@@ -53,11 +50,9 @@ const About = () => {
             </div>
           </Col>
 
-          {/* ── RIGHT: Content Panel ── */}
           <Col lg={7} className="about-right">
             <div className="about-right-inner">
 
-              {/* Badge */}
               <div className="about-badge text-center" ref={ref(2)}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
                   <rect x="2" y="2" width="9" height="9" rx="1.5" fill="#0abfbc" />
@@ -68,14 +63,12 @@ const About = () => {
                 <span className="text-dark fw-bold">GET TO KNOW US</span>
               </div>
 
-              {/* Heading */}
               <h2 className="about-title" ref={ref(3)}>
                 Empowering Businesses<br />
                 with Innovation, Expertise,<br />
                 and for <em className="teal-word">Success.</em>
               </h2>
 
-              {/* Learn More */}
               <div className="about-learn" ref={ref(4)}>
                 <span className="learn-text">Learn More</span>
                 <button className="learn-btn" aria-label="Learn more">
@@ -85,13 +78,10 @@ const About = () => {
                 </button>
               </div>
 
-              {/* Bottom cards row */}
               <Row className="g-3 about-bottom-row">
 
-                {/* Testimonial card */}
                 <Col md={7}>
                   <div className="testimonial-card" ref={ref(5)}>
-                    {/* Stars */}
                     <div className="stars">
                       {[...Array(5)].map((_, i) => (
                         <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -118,7 +108,6 @@ const About = () => {
                   </div>
                 </Col>
 
-                {/* Video / image card */}
                 <Col md={5}>
                   <div className="video-card" ref={ref(6)}>
                     <img

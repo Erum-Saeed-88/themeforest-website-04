@@ -131,7 +131,6 @@ const Solutions = () => {
       </div>
 
       <Container>
-        {/* Header */}
         <div className="sol-header" ref={headerRef}>
           <div className="sol-badge">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
@@ -149,7 +148,6 @@ const Solutions = () => {
           </h2>
         </div>
 
-        {/* Cards */}
         <div className="sol-cards-wrapper" key={animKey}>
           {visibleCards.map((card, pos) => {
             const isActive = pos === VISIBLE - 1;
@@ -187,7 +185,6 @@ const Solutions = () => {
           })}
         </div>
 
-        {/* Dot indicators */}
         <div className="sol-indicators">
           {solutions.map((_, i) => (
             <button

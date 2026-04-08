@@ -48,7 +48,6 @@ const brands = [
       </svg>
     ),
   },
-  // Repeat for seamless loop
   {
     id: 6,
     name: "Audac2",
@@ -113,7 +112,7 @@ const CtaCard = () => (
 const Ticker = () => {
   return (
     <section className="ticker-section mt-3 mb-3">
-      {/* Fade edges */}
+
       <div className="ticker-fade ticker-fade-left" />
       <div className="ticker-fade ticker-fade-right" />
 

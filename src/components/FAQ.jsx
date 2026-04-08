@@ -43,7 +43,7 @@ const FAQItem = ({ faq, isOpen, onToggle, index }) => {
       className={`faq-item ${isOpen ? "faq-item--open" : ""}`}
       style={{ "--delay": `${index * 0.08}s` }}
     >
-      <button className="faq-question" onClick={onToggle}>
+      <button className="faq-question text-secondary" onClick={onToggle}>
         <span className="faq-q-text">{faq.question}</span>
         <span className={`faq-icon ${isOpen ? "faq-icon--open" : ""}`}>
           {isOpen ? (
@@ -67,7 +67,7 @@ const FAQItem = ({ faq, isOpen, onToggle, index }) => {
           maxHeight: isOpen ? `${bodyRef.current?.scrollHeight || 300}px` : "0px",
         }}
       >
-        <p className="faq-answer">{faq.answer}</p>
+        <p className="faq-answer text-muted">{faq.answer}</p>
       </div>
     </div>
   );
@@ -97,7 +97,7 @@ const FAQ = () => {
 
       <Container>
         <Row className="g-5 align-items-start">
-          {/* ── LEFT: Image + CTA card ── */}
+        
           <Col lg={5} ref={leftRef} className="faq-left">
             <div className="faq-img-wrapper">
               <img
@@ -107,12 +107,12 @@ const FAQ = () => {
               />
               <div className="faq-img-overlay" />
 
-              {/* Heading on image */}
+              
               <div className="faq-img-heading">
                 <h2>Need Help? Start<br />Here...</h2>
               </div>
 
-              {/* Floating CTA card */}
+            
               <div className="faq-cta-card">
                 <p className="faq-cta-title">Get Started<br />Free Call?</p>
                 <div className="faq-cta-phone-row">
@@ -132,7 +132,7 @@ const FAQ = () => {
             </div>
           </Col>
 
-          {/* ── RIGHT: FAQ Accordion ── */}
+        
           <Col lg={7} ref={rightRef} className="faq-right">
             <div className="faq-list">
               {faqs.map((faq, i) => (

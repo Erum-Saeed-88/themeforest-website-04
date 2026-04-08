@@ -54,7 +54,6 @@ const Portfolio = () => {
       <div className="pf-bg-mesh" />
 
       <Container>
-        {/* ── Header Row ── */}
         <div className="pf-header" ref={headerRef}>
           <Row className="align-items-center g-4">
             <Col lg={4} md={12}>
@@ -100,9 +99,8 @@ const Portfolio = () => {
           </Row>
         </div>
 
-        {/* ── Cards Grid ── */}
         <div className="pf-grid">
-          {/* Large card */}
+      
           <div
             className="pf-card pf-card--large"
             ref={(el) => (cardRefs.current[0] = el)}
@@ -122,7 +120,7 @@ const Portfolio = () => {
             <div className="pf-shimmer" />
           </div>
 
-          {/* Small cards column */}
+  
           <div className="pf-col-right">
             {projects.slice(1).map((proj, i) => (
               <div

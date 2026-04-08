@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-/* Dot locations on the world map (% positions) */
 const mapDots = [
   { top: "38%", left: "22%", size: 10 },
   { top: "32%", left: "38%", size: 8 },
@@ -57,29 +56,24 @@ const Contact = () => {
 
   return (
     <section className="contact-section">
-      {/* Dark animated bg */}
       <div className="ct-bg-gradient" />
       <div className="ct-bg-grid" />
 
       <Container fluid className="px-0 h-100">
         <Row className="g-0 align-items-stretch contact-row">
 
-          {/* ── LEFT: World Map ── */}
           <Col lg={6} className="ct-map-col" ref={mapRef}>
             <div className="ct-map-wrapper">
-              {/* SVG World Map (dot-grid style) */}
               <svg
                 className="ct-world-svg"
                 viewBox="0 0 800 500"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Generate dot grid pattern */}
                 {Array.from({ length: 55 }, (_, row) =>
                   Array.from({ length: 90 }, (_, col) => {
                     const x = col * 9 + 5;
                     const y = row * 9 + 5;
-                    // Rough world map mask
                     const inMap = isInWorldMap(x, y);
                     if (!inMap) return null;
                     return (
@@ -98,7 +92,6 @@ const Contact = () => {
                 )}
               </svg>
 
-              {/* Glowing location dots */}
               {mapDots.map((dot, i) => (
                 <div
                   key={i}
@@ -113,15 +106,13 @@ const Contact = () => {
                 />
               ))}
 
-              {/* Vertical teal scan line */}
               <div className="ct-scan-line" />
             </div>
           </Col>
 
-          {/* ── RIGHT: Contact Form ── */}
           <Col lg={6} className="ct-form-col">
             <div className="ct-form-wrapper mt-5 mb-5" ref={formRef}>
-              {/* Badge */}
+
               <div className="ct-badge">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
                   <rect x="2" y="2" width="9" height="9" rx="1.5" fill="#0abfbc" />
@@ -136,7 +127,6 @@ const Contact = () => {
                 Drop Us a <em className="ct-teal">Line.</em>
               </h2>
 
-              {/* Success message */}
               {submitted && (
                 <div className="ct-success">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -148,7 +138,7 @@ const Contact = () => {
               )}
 
               <form onSubmit={handleSubmit} className="ct-form" noValidate>
-                {/* Row 1: Name + Email */}
+          
                 <Row className="g-3 mb-3">
                   <Col sm={6}>
                     <div className={`ct-field ${focused === "name" ? "ct-field--focused" : ""} ${form.name ? "ct-field--filled" : ""}`}>
@@ -184,7 +174,7 @@ const Contact = () => {
                   </Col>
                 </Row>
 
-                {/* Row 2: Phone + Service */}
+
                 <Row className="g-3 mb-3">
                   <Col sm={6}>
                     <div className={`ct-field ${focused === "phone" ? "ct-field--focused" : ""} ${form.phone ? "ct-field--filled" : ""}`}>
@@ -226,7 +216,7 @@ const Contact = () => {
                   </Col>
                 </Row>
 
-                {/* Row 3: Message */}
+          
                 <Row className="g-3 mb-5">
                   <Col sm={12}>
                     <div className={`ct-field ct-field--textarea ${focused === "message" ? "ct-field--focused" : ""} ${form.message ? "ct-field--filled" : ""}`}>
@@ -245,7 +235,7 @@ const Contact = () => {
                   </Col>
                 </Row>
 
-                {/* Submit */}
+        
                 <button type="submit" className="ct-submit-btn">
                   <span>Send Message</span>
                   <span className="ct-btn-icon">
@@ -263,26 +253,26 @@ const Contact = () => {
   );
 };
 
-/* Rough world map mask function */
+
 function isInWorldMap(x, y) {
   const px = x / 800;
   const py = y / 500;
 
-  // North America
+  
   if (px > 0.03 && px < 0.28 && py > 0.1 && py < 0.55) {
     if (px > 0.05 && py > 0.12 && py < 0.48) return true;
   }
-  // South America
+
   if (px > 0.18 && px < 0.32 && py > 0.5 && py < 0.92) return true;
-  // Europe
+
   if (px > 0.42 && px < 0.57 && py > 0.08 && py < 0.42) return true;
-  // Africa
+  
   if (px > 0.43 && px < 0.58 && py > 0.38 && py < 0.85) return true;
-  // Asia
+  
   if (px > 0.55 && px < 0.88 && py > 0.08 && py < 0.62) return true;
-  // Australia
+  
   if (px > 0.72 && px < 0.88 && py > 0.6 && py < 0.85) return true;
-  // Greenland
+  
   if (px > 0.28 && px < 0.42 && py > 0.04 && py < 0.28) return true;
 
   return false;

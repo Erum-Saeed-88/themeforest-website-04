@@ -72,11 +72,10 @@ const Services = () => {
 
   return (
     <section className="services-section pt-5" ref={sectionRef}>
-      {/* Background mesh */}
       <div className="services-bg-mesh" />
 
       <Container>
-        {/* Header */}
+  
         <div className="services-header">
           <div className="services-badge text-dark">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -95,7 +94,6 @@ const Services = () => {
           </h2>
         </div>
 
-        {/* Cards */}
         <Row className="g-4 services-cards-row ">
           {services.map((svc, i) => (
             <Col lg={4} md={6} key={svc.id}>
@@ -104,29 +102,28 @@ const Services = () => {
                 ref={(el) => (cardRefs.current[i] = el)}
                 style={{ "--delay": `${i * 0.15}s` }}
               >
-                {/* Top line accent */}
+
                 <div className="card-top-line" />
 
-                {/* Icon */}
+  
                 <div className="card-icon-wrap">
                   <div className="card-icon">{svc.icon}</div>
                   <div className="icon-glow" />
                 </div>
 
-                {/* Content */}
+                
                 <div className="card-content">
                   <h3 className="card-title">{svc.title}</h3>
-                  <p className="card-desc">{svc.desc}</p>
+                  <p className="card-desc text-muted">{svc.desc}</p>
                 </div>
 
-                {/* Hover arrow */}
                 <div className="card-arrow">
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                     <path d="M3 15L15 3M15 3H7M15 3V11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
 
-                {/* Shimmer */}
+  
                 <div className="card-shimmer" />
               </div>
             </Col>

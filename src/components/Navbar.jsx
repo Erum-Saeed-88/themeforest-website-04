@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Navbar as BSNavbar, Nav, Container, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { FaChevronDown } from "react-icons/fa";
+
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -17,8 +20,7 @@ const Navbar = () => {
       className={`bexon-navbar ${scrolled ? "navbar-scrolled" : ""}`}
       variant="dark"
     >
-      <Container fluid className="px-4 bg-tertiary">
-        {/* Brand */}
+      <Container fluid className="px-4 rounded nav-container">
         <BSNavbar.Brand href="#" className="bexon-brand">
           <span className="brand-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -39,21 +41,13 @@ const Navbar = () => {
 
         <BSNavbar.Collapse id="bexon-nav">
           <Nav className="mx-auto bexon-nav-links">
-            {["Home", "Pages", "Services", "Portfolio", "Blog"].map((item) => (
-              <Nav.Link key={item} href="#" className="bexon-nav-item">
-                {item}
-                <span className="nav-arrow">
-                  <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
-                    <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                </span>
+            {["Home", "About", "Services", "Portfolio", "Blog", "Contact"].map((item) => (
+              <div key={item} className="nav-item-wrapper">
+                <Link to={`/${item.toLowerCase()}`} className="bexon-nav-item">{item}<FaChevronDown /></Link>
+                
                 <span className="nav-underline" />
-              </Nav.Link>
+              </div>
             ))}
-            <Nav.Link href="#" className="bexon-nav-item no-arrow">
-              Contact
-              <span className="nav-underline" />
-            </Nav.Link>
           </Nav>
 
           <div className="bexon-nav-actions">

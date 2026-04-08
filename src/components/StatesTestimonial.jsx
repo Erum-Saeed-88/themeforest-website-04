@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-/* ── Stats data ── */
 const stats = [
   { value: 93, suffix: "%", label: "Projects Completed" },
   { value: 20, suffix: "M", label: "Reach Worldwide" },
@@ -9,7 +8,7 @@ const stats = [
   { value: 100, suffix: "+", label: "Awards Archived" },
 ];
 
-/* ── Testimonials data ── */
+
 const testimonials = [
   {
     id: 1,
@@ -48,7 +47,7 @@ const testimonials = [
   },
 ];
 
-/* ── Animated counter hook ── */
+
 function useCounter(target, duration = 1800, start = false) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -69,7 +68,7 @@ function useCounter(target, duration = 1800, start = false) {
   return count;
 }
 
-/* ── Single stat item ── */
+
 const StatItem = ({ value, suffix, label, started }) => {
   const count = useCounter(value, 1800, started);
   return (
@@ -83,7 +82,7 @@ const StatItem = ({ value, suffix, label, started }) => {
   );
 };
 
-const VISIBLE = 3; // cards visible at once
+const VISIBLE = 3;
 
 const StatsTestimonials = () => {
   const statsRef = useRef(null);
@@ -94,7 +93,7 @@ const StatsTestimonials = () => {
   const [animDir, setAnimDir] = useState("right");
   const [animKey, setAnimKey] = useState(0);
 
-  // Trigger stats counter on scroll
+
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setStatsStarted(true); obs.disconnect(); } },
@@ -104,7 +103,7 @@ const StatsTestimonials = () => {
     return () => obs.disconnect();
   }, []);
 
-  // Header scroll reveal
+  
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) e.target.classList.add("st-visible"); },
@@ -127,14 +126,13 @@ const StatsTestimonials = () => {
     goTo((current + 1) % testimonials.length, "right");
   };
 
-  // Auto-play
+
   useEffect(() => {
     if (paused) return;
     const t = setInterval(next, 4000);
     return () => clearInterval(t);
   }, [current, paused]);
 
-  // Visible testimonial indices
   const visible = Array.from({ length: VISIBLE }, (_, i) =>
     testimonials[(current + i) % testimonials.length]
   );
@@ -144,7 +142,6 @@ const StatsTestimonials = () => {
       <div className="st-bg-mesh" />
 
       <Container>
-        {/* ── STATS STRIP ── */}
         <div className="stats-strip" ref={statsRef}>
           <div className="stats-strip-inner">
             {stats.map((s, i) => (
@@ -156,7 +153,6 @@ const StatsTestimonials = () => {
           </div>
         </div>
 
-        {/* ── TESTIMONIALS HEADER ── */}
         <div className="st-header" ref={headerRef}>
           <Row className="align-items-center">
             <Col lg={6}>
@@ -202,17 +198,17 @@ const StatsTestimonials = () => {
               className={`st-card ${pos === 1 ? "st-card--active" : ""} st-card--enter-${animDir}`}
               style={{ "--pos": pos }}
             >
-              {/* Quote icon */}
+
               <div className="st-quote-icon">
                 <svg width="32" height="26" viewBox="0 0 32 26" fill="none">
                   <path d="M0 26V15.6C0 7.07 4.8 1.87 14.4 0L16 2.6C10.67 3.93 7.73 7.27 7.73 12.6H13.87V26H0zm18.13 0V15.6C18.13 7.07 22.93 1.87 32.53 0L34.13 2.6C28.8 3.93 25.87 7.27 25.87 12.6H32V26H18.13z" fill="currentColor"/>
                 </svg>
               </div>
 
-              {/* Text */}
-              <p className="st-card-text">{t.text}</p>
+          
+              <p className="st-card-text text-muted">{t.text}</p>
 
-              {/* Author */}
+      
               <div className="st-author">
                 <img src={t.avatar} alt={t.name} className="st-avatar" />
                 <div>

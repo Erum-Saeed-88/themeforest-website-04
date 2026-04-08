@@ -25,17 +25,17 @@ const Hero = () => {
 
   return (
     <section className="hero-section" ref={heroRef}>
-      {/* Animated background orbs */}
+      
       <div className="hero-orb orb-1" />
       <div className="hero-orb orb-2" />
       <div className="hero-grid-lines" />
 
       <Container fluid className="h-100 px-0">
         <Row className="h-100 g-0">
-          {/* LEFT — Dark Panel */}
+          
           <Col lg={6} className="hero-left">
             <div className="hero-left-inner">
-              {/* Badge */}
+            
               <div className="hero-badge">
                 <span className="badge-icon">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
@@ -48,7 +48,7 @@ const Hero = () => {
                 <span>RECOGNIZED FOR EXCELLENCE</span>
               </div>
 
-              {/* Headline */}
+            
               <h1 className="hero-title">
                 <span className="title-line line-1">Driving Excellence</span>
                 <span className="title-line line-2">Through Evolution</span>
@@ -57,7 +57,7 @@ const Hero = () => {
                 </span>
               </h1>
 
-              {/* Description row */}
+              
               <div className="hero-desc-row">
                 <div className="arrow-box">
                   <svg width="48" height="48" viewBox="0 0 60 60" fill="none">
@@ -77,7 +77,7 @@ const Hero = () => {
                 </p>
               </div>
 
-              {/* Avatars + CTA */}
+          
               <div className="hero-social-row">
                 <div className="avatar-stack">
                   {avatars.map((src, i) => (
@@ -99,7 +99,7 @@ const Hero = () => {
             </div>
           </Col>
 
-          {/* RIGHT — Image Panel */}
+      
           <Col lg={6} className="hero-right">
             <div className="hero-image-wrapper">
               <img
@@ -109,7 +109,7 @@ const Hero = () => {
               />
               <div className="hero-image-overlay" />
 
-              {/* Floating card */}
+      
               <div className="hero-float-card">
                 <div className="float-avatars">
                   {avatars.map((src, i) => (
@@ -123,7 +123,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              {/* Teal accent dot */}
+          
               <div className="hero-accent-dot" />
             </div>
           </Col>
